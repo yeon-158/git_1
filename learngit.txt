@@ -1,0 +1,79 @@
+Git使用技能：
+1.介绍：Git一项版本控制工具//git指向最新最稳定的状态版本
+2.功能：（1）控制，回退
+        （2）代码托管
+        （3）多人协作
+3.步骤：
+        （1）IDE新建项目~git仓库 git init  //
+        （2）改变内容(添加要追踪的文件 git add .  )
+        （3）提交(建立版本)git commit-m"...."
+***控制面板，用户账户，凭据管理器
+4.仓库网址:https://git.hao99.club/
+5.命令:
+      添加追踪文件: git add .
+	  
+      提交版本: git commit -m "备注"
+	  
+      添加远程仓库的源: git remote add origin (地址)
+	  
+	  第一次推送到远程仓库: git push -u origin master
+	  
+	  后面推送远程仓库: git push
+	  
+      回退版本: git reset --hard (commit id 或者 用 HEAD 表示)
+	  #示例git reset --hard 10acb
+	  下面的HEAD表示当前版本，HEAD^表示当前版本的上一个版本，HEAD^^表示上两个版本，HEAD-100 表示上100个版本。
+      git reset --hard HEAD^
+
+	  版本信息: git log  / git log --pretty=oneline / git log --graph
+	  如果嫌显示的内容太多，可使用第二个，它会将每个commit单行显示。
+	  而第三个是以图表的形式显示。
+	  //如果显示得太多，不知道怎么退出查看模式的话，按q即可退出
+	  
+	  回退记录: git reflog（命令历史）
+	  
+	  将本地版本仓库推送到远程仓库：git push origin master
+      //将本地的master分支推送到origin主机的master分支。如果master不存在，则会被新建。
+	  
+	  git push -u (主机名称) (分支名称)
+      # 示例git push -u origin master
+      -u参数代表将本地仓库的分支与远程仓库的分支进行绑定，当像上面那样指定了默认的主机之后，以后进行推送的时候就可以将命令简写为：git push
+	  
+	  当远程仓库比本地仓库要新，你需要将远程仓库pull完成合并才能够push，但还有一种情况，比如说你要进行回滚操作，本地仓库已经完成了回滚，这时候你肯定是想要将远程仓库也回滚本地仓库的版本，这时候可通过-force参数强制push
+      git push --force (主机名称)简写git push -f (主机名称)
+      # 示例：git push -f origin
+      还有一种情况，无论远程仓库是否有对应的分支都将本地仓库的所有分支推送到远程仓库git push -all (主机名称)
+      # 示例：git push -all origin
+	  
+	  仓库状态: git status
+	  
+	  将远程仓库克隆到本地：git clone (仓库地址)
+      # 示例git clone https://git.hao99.club/lwh/demo.git
+      
+	  将远程仓库的更新拉取到本地：git pull
+	  
+	  查看分支: git branch
+	  
+	  查看远程和本地所有分支：git branch -a
+      
+	  新建分支：git branch (分支名称)
+	  
+	  新建并切换分支: git checkout -b (分支名)
+	  
+	  切换分支: git checkout (分支名)
+	  
+	  合并分支: git merge (分支名)
+	  假设上面的目标分支为A，当前所在分支为B，该命令是将A合并到B分支，也就是合并前要切换到对应的分支，再进行合并。
+	  
+	  删除本地分支：git branch -D (分支名)
+	  
+	  删除远程 分支：git push (主机名) --delete (分支名)
+      # 示例：git push origin --delete dev
+//课堂笔记：git reset
+            git reflog回退
+            git commit-
+            分支命令
+            git branch查看分支
+            git checkout -b" . ."注册分支
+            git checkout "..."切换分支
+            git branck -d 分支名字 删除分支
